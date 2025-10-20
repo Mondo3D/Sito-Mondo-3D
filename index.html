@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mondo 3D - Stampa e Modelli 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="cart-sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleCart()">&times;</button>
+        <h2>🛒 Il tuo Carrello</h2>
+        <div id="cart-items">
+            <p class="empty-cart-message">Il carrello è vuoto.</p>
+        </div>
+        <div class="cart-summary">
+            <p>Totale: <span id="cart-total">€ 0.00</span></p>
+            <button id="checkout-btn" class="checkout-button" disabled>Procedi al Checkout</button>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Mondo 3D</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categorie <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Gadget</a>
+                        <a href="#">Casa</a>
+                        <a href="#">Ufficio</a>
+                        <a href="#">Regali</a>
+                        <a href="#">Portachiavi</a>
+                        <a href="#">Litofanie</a>
+                        <a href="#">Lampade</a>
+                    </div>
+                </li>
+                <li><a href="#galleria">Galleria</a></li>
+                <li><a href="#chi-sono">Chi Siamo</a></li>
+                <li><a href="#contatti">Contattaci</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <h1>Dai forma alle tue idee con la Stampa 3D</h1>
+            <p>Esplora la nostra selezione di modelli unici o richiedi un preventivo personalizzato.</p>
+        </section>
+
+        <section id="prodotti" class="products-grid">
+            <h2>I Nostri Prodotti in Evidenza</h2>
+            
+            <div class="product-card" data-id="pk01" data-name="Portachiavi Logo 3D" data-price="7.99">
+                <img src="https://via.placeholder.com/300x200?text=Portachiavi+Personalizzato" alt="Portachiavi Logo 3D">
+                <h3>Portachiavi Logo 3D</h3>
+                <p>Ideale come regalo aziendale o gadget personalizzato.</p>
+                <span class="price">€ 5.99</span>
+                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+            </div>
+
+            <div class="product-card" data-id="vs02" data-name="Vaso Geometrico Moderno" data-price="24.50">
+                <img src="https://via.placeholder.com/300x200?text=Vaso+Geometrico" alt="Vaso Geometrico">
+                <h3>Vaso Geometrico Moderno</h3>
+                <p>Design minimalista perfetto per la casa o l'ufficio.</p>
+                <span class="price">€ 24.50</span>
+                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+            </div>
+
+           <div class="product-card" data-id="kf03" data-name="KafelKapsewaves" data-price="14.00">
+                <img src=Kafelkapsewaves.jpg alt="Portacapsule KafelKapsewaves">
+                <h3>Kafelkapsewaves</h3>
+                <p>L'originale porta capsule modulare dal design dinamico. Perfetto per la tua postazione caffè!</p>
+                <span class="price">€ 21.00</span>
+                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+            </div>
+            
+            <div class="product-card" data-id="lp04" data-name="Lampada Notturna a LED" data-price="39.99">
+                <img src="https://via.placeholder.com/300x200?text=Lampada+3D" alt="Lampada Notturna">
+                <h3>Lampada Notturna a LED</h3>
+                <p>Personalizzabile con il tuo nome o un logo (Categoria Lampade).</p>
+                <span class="price">€ 39.99</span>
+                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+            </div>
+        </section>
+
+        <section id="galleria" class="gallery-section">
+            <h2>Galleria dei Progetti</h2>
+            <div class="carousel-container">
+                <div class="carousel-slider" id="image-slider">
+                    <div class="slide"><img src="https://via.placeholder.com/800x400?text=Progetto+Architettonico" alt="Progetto 1"></div>
+                    <div class="slide"><img src="https://via.placeholder.com/800x400?text=Accessorio+Personalizzato" alt="Progetto 2"></div>
+                    <div class="slide"><img src="https://via.placeholder.com/800x400?text=Prototipo+Meccanico" alt="Progetto 3"></div>
+                </div>
+
+                <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1)">&#10095;</button>
+                
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="chi-sono" class="about-section">
+            <h2>Chi Siamo</h2>
+            <div class="bio-content">
+                <img src=Logo.jpg alt="Foto del Logo" class="profile-img">
+                
+                <p>
+                    Benvenuto! Mondo 3D nasce per eliminare la distanza tra la mente e la materia e per offrire soluzioni creative e veloci che la produzione tradizionale non può dare. Se hai uno schizzo, un file CAD, o semplicemente un'esigenza specifica (un ricambio introvabile, un logo tridimensionale), noi lo rendiamo reale. L'approccio è semplice: ascoltiamo l'idea, selezioniamo il miglior filamento (dal PLA tecnico al PETG rinforzato - ), e lo stampiamo con una qualità che dovrai toccare per credere. Siamo il giusto partner per la prototipazione e la personalizzazione. Smetti di immaginare, inizia a creare. Contattaci oggi.
+                </p>
+            </div>
+        </section>
+
+        <section id="contatti" class="contact-section">
+            <h2>Contattaci</h2>
+            <p>Se hai domande o richieste di preventivo, usa il modulo qui sotto e *trovaci sui social!*</p>
+
+            <form action="#" method="POST" class="contact-form">
+                <input type="text" name="nome" placeholder="Il tuo Nome" required>
+                <input type="email" name="email" placeholder="La tua Email" required>
+                <textarea name="messaggio" placeholder="Il tuo Messaggio..." rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Invia Messaggio</button>
+            </form>
+
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mondo 3D. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 
