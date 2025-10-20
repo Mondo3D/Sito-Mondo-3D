@@ -1,0 +1,543 @@
+/* ===================================== */
+/* 🎨 VARIABILI GLOBALI E FONT (AGGIORNATO) */
+/* ===================================== */
+:root {
+    --color-primary: #1e3a8a;       /* Blu Navy Scuro (Sfondo Navbar) */
+    --color-secondary: #80ffca;     /* Verde chiaro (Logo) */
+    --color-accent: #000000;        /* Nero (Prezzi, Badge Carrello) */
+    --color-cart-action: #ef4444;   /* 🔴 ROSSO per Pulsanti di RIMOZIONE/CHIAMATA ALL'AZIONE */
+    --color-bg: #f8fafc;            
+    --color-text: #1f2937;          
+    --color-light: #fff;
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    scroll-behavior: smooth;
+}
+
+/* ===================================== */
+/* 💻 LAYOUT BASE E UTILITY */
+/* ===================================== */
+section {
+    padding: 60px 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+/* Animazioni morbide sui link e pulsanti */
+a, button {
+    transition: all var(--transition-speed) ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ===================================== */
+/* ⬆️ NAVBAR E HEADER */
+/* ===================================== */
+.navbar {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Per essere sempre sopra gli altri elementi */
+}
+
+.logo {
+    font-family: 'Fredoka One', cursive; 
+    font-size: 2.5em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+    text-shadow: 2px 2px 0 var(--color-primary); 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    padding: 0 15px;
+}
+
+.nav-links a {
+    color: var(--color-light);
+    padding: 10px 0;
+    display: block;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-primary);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 15px;
+    border-top: 3px solid var(--color-secondary);
+}
+
+.dropdown-content a {
+    color: var(--color-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #005a8f; /* Blu leggermente più scuro */
+    color: var(--color-accent);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Icona Carrello */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+/* ===================================== */
+/* 🛍️ CARRELLO LATERALE (SIDEBAR) */
+/* ===================================== */
+.sidebar {
+    height: 100%;
+    width: 0; /* Inizialmente nascosto */
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    background-color: var(--color-light);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: -4px 0 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    width: 350px; /* Larghezza del carrello aperto */
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-bg);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+}
+
+#cart-items {
+    flex-grow: 1; /* Il contenuto del carrello può scorrere */
+    overflow-y: auto;
+    padding-right: 10px; /* Spazio per la scrollbar */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-bg);
+}
+
+.item-info {
+    flex-grow: 1;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-left: 15px;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.cart-summary {
+    padding-top: 15px;
+    border-top: 2px solid var(--color-primary);
+    margin-top: 15px;
+}
+
+.cart-summary p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.checkout-button:hover:not(:disabled) {
+    background-color: #008f75;
+}
+
+.checkout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+/* ===================================== */
+/* 🎁 PRODOTTI E HERO */
+/* ===================================== */
+.hero {
+    text-align: center;
+    background-color: var(--color-light);
+    padding: 80px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.product-card {
+    background-color: var(--color-light);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.4em;
+    margin-top: 0;
+}
+
+.product-card .price {
+    display: block;
+    font-size: 1.2em;
+    color: var(--color-accent);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #005a8f;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===================================== */
+/* 🖼️ GALLERIA - SLIDER/CAROUSEL */
+/* ===================================== */
+.gallery-section {
+    text-align: center;
+    background-color: #eaf6f4; /* Sfondo leggermente diverso */
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden; /* Nasconde le slide che non sono attive */
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.carousel-slider {
+    display: flex;
+    transition: transform 0.6s ease-in-out; /* Transizione fluida per lo scorrimento */
+}
+
+.slide {
+    min-width: 100%; /* Ogni slide occupa il 100% del contenitore */
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Controlli (Frecce) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.4s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Indicatori (Pallini) */
+.dots-container {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-light);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: var(--color-secondary);
+}
+
+
+/* ===================================== */
+/* 👤 CHI SONO E 📞 CONTATTI */
+/* ===================================== */
+.about-section {
+    text-align: center;
+}
+
+.bio-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--color-secondary);
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: var(--color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.submit-btn {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #008f75;
+}
+
+.social-links a {
+    font-size: 2em;
+    margin: 0 15px;
+    color: var(--color-primary);
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+
+/* ===================================== */
+/* 📱 RESPONSIVE DESIGN (Smartphone/Tablet) */
+/* ===================================== */
+
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none; /* Nascondiamo i link principali, si potrebbe usare un menu hamburger */
+        width: 100%;
+        order: 3;
+    }
+
+    .nav-links li {
+        padding: 5px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .dropdown:hover .dropdown-content {
+        position: static;
+        width: 100%;
+    }
+
+    .dropdown-content a {
+        padding-left: 30px;
+    }
+
+    .sidebar.open {
+        width: 100%; /* Il carrello occupa tutto lo schermo su mobile */
+        max-width: 400px; /* Limite massimo anche se occupa lo schermo */
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+/* Smartphone (max 500px) */
+@media (max-width: 500px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .cart-icon {
+        margin-left: auto; /* Spinge il carrello a destra */
+    }
+    
+    .hero h1 {
+        font-size: 2em;
+    }
+}
+
+/* ===================================== */
+/* 🦶 FOOTER */
+/* ===================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    margin-top: 40px;
+}
