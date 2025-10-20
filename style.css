@@ -1,11 +1,13 @@
+/* ===================================== */
+/* 🎨 VARIABILI GLOBALI E FONT (AGGIORNATO) */
+/* ===================================== */
 :root {
-    --color-primary: #1e3a8a;
-    --color-secondary: #29af00;
-    --color-accent: #f97316;
-    --color-cart-action: #ef4444;
-    --color-cyan-neon: #0099ff;
-    --color-bg: #f8fafc;
-    --color-text: #1f2937;
+    --color-primary: #1e3a8a;       /* Blu Navy Scuro (Sfondo Navbar) */
+    --color-secondary: #80ffca;     /* Verde chiaro (Logo) */
+    --color-accent: #000000;        /* Nero (Prezzi, Badge Carrello) */
+    --color-cart-action: #ef4444;   /* 🔴 ROSSO per Pulsanti di RIMOZIONE/CHIAMATA ALL'AZIONE */
+    --color-bg: #f8fafc;            
+    --color-text: #1f2937;          
     --color-light: #fff;
     --transition-speed: 0.3s;
 }
@@ -17,13 +19,16 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
     line-height: 1.6;
     color: var(--color-text);
     background-color: var(--color-bg);
     scroll-behavior: smooth;
 }
 
+/* ===================================== */
+/* 💻 LAYOUT BASE E UTILITY */
+/* ===================================== */
 section {
     padding: 60px 20px;
     margin: 0 auto;
@@ -33,45 +38,43 @@ section {
 h1, h2, h3 {
     margin-bottom: 20px;
     color: var(--color-primary);
-    font-family: 'Roboto', sans-serif;
 }
 
+/* Animazioni morbide sui link e pulsanti */
 a, button {
     transition: all var(--transition-speed) ease-in-out;
     text-decoration: none;
     cursor: pointer;
 }
 
+/* ===================================== */
+/* ⬆️ NAVBAR E HEADER */
+/* ===================================== */
 .navbar {
     background-color: var(--color-primary);
     color: var(--color-light);
     display: flex;
-    justify-content: center; 
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; 
+    padding: 15px 30px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 100; /* Per essere sempre sopra gli altri elementi */
 }
 
 .logo {
-    font-family: 'Fredoka One', cursive;
-    font-size: 3.0em;
+    font-family: 'Fredoka One', cursive; 
+    font-size: 2.5em;
     font-weight: 400;
-    letter-spacing: 4px;
-    color: var(--color-cyan-neon);
-    text-shadow: 
-        1px 1px 2px var(--color-light),
-        0 0 15px var(--color-cyan-neon);
-    margin-right: 150px; 
-    margin-left: 0;
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+    text-shadow: 2px 2px 0 var(--color-primary); 
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    margin-right: 0; 
 }
 
 .nav-links li {
@@ -86,9 +89,10 @@ a, button {
 }
 
 .nav-links a:hover {
-    color: var(--color-cyan-neon);
+    color: var(--color-accent);
 }
 
+/* Dropdown Menu */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -108,26 +112,26 @@ a, button {
 }
 
 .dropdown-content a:hover {
-    background-color: #005a8f;
-    color: var(--color-cyan-neon);
+    background-color: #005a8f; /* Blu leggermente più scuro */
+    color: var(--color-accent);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
+/* Icona Carrello */
 .cart-icon {
     position: relative;
     cursor: pointer;
     font-size: 1.5em;
-    margin-left: 30px; 
 }
 
 .cart-badge {
     position: absolute;
     top: -8px;
     right: -10px;
-    background-color: var(--color-accent);
+    background-color: var(--color-secondary);
     color: var(--color-light);
     border-radius: 50%;
     padding: 2px 6px;
@@ -135,9 +139,12 @@ a, button {
     font-weight: bold;
 }
 
+/* ===================================== */
+/* 🛍️ CARRELLO LATERALE (SIDEBAR) */
+/* ===================================== */
 .sidebar {
     height: 100%;
-    width: 0; 
+    width: 0; /* Inizialmente nascosto */
     position: fixed;
     z-index: 150;
     top: 0;
@@ -152,7 +159,7 @@ a, button {
 }
 
 .sidebar.open {
-    width: 350px;
+    width: 350px; /* Larghezza del carrello aperto */
     padding: 20px;
 }
 
@@ -175,9 +182,9 @@ a, button {
 }
 
 #cart-items {
-    flex-grow: 1; 
+    flex-grow: 1; /* Il contenuto del carrello può scorrere */
     overflow-y: auto;
-    padding-right: 10px;
+    padding-right: 10px; /* Spazio per la scrollbar */
 }
 
 .cart-item {
@@ -193,7 +200,7 @@ a, button {
 }
 
 .remove-btn {
-    background-color: var(--color-cart-action);
+    background-color: #e74c3c;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -204,7 +211,7 @@ a, button {
 }
 
 .remove-btn:hover {
-    background-color: #dc2626;
+    background-color: #c0392b;
 }
 
 .cart-summary {
@@ -219,14 +226,10 @@ a, button {
     margin-bottom: 15px;
 }
 
-#cart-total {
-    color: var(--color-accent);
-}
-
 .checkout-button {
     width: 100%;
     padding: 15px;
-    background-color: var(--color-cart-action);
+    background-color: var(--color-secondary);
     color: var(--color-light);
     border: none;
     font-size: 1.1em;
@@ -234,7 +237,7 @@ a, button {
 }
 
 .checkout-button:hover:not(:disabled) {
-    background-color: #dc2626;
+    background-color: #008f75;
 }
 
 .checkout-button:disabled {
@@ -248,6 +251,9 @@ a, button {
     padding: 20px;
 }
 
+/* ===================================== */
+/* 🎁 PRODOTTI E HERO */
+/* ===================================== */
 .hero {
     text-align: center;
     background-color: var(--color-light);
@@ -256,102 +262,33 @@ a, button {
     margin-top: 20px;
 }
 
-.hero h1 {
-    font-size: 3.3em;
-    color: var(--color-primary);
-    margin-bottom: 10px;
-}
-
-.hero .hero-subtitle {
-    font-size: 1.5em;
-    color: var(--color-text);
-    margin-top: -10px;
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.no-break {
-    white-space: nowrap;
-}
-
-.hero .button-primary {
-    display: inline-block;
-    background-color: var(--color-secondary);
-    color: var(--color-light);
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-
-.hero .button-primary:hover {
-    background-color: #249900;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* -------------------- CAROUSEL PRODOTTI -------------------- */
-.products-carousel {
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
     padding-top: 20px;
 }
 
-.products-scroll-wrapper {
-    display: flex;                 
-    overflow-x: auto;              
-    gap: 30px;                     
-    padding-bottom: 10px;          
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    position: relative;
-}
-
-/* Barra di scorrimento visibile */
-.products-scroll-wrapper::-webkit-scrollbar {
-    height: 8px;
-}
-
-.products-scroll-wrapper::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.products-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    border-radius: 4px;
-}
-
-.products-scroll-wrapper {
-    -ms-overflow-style: auto;  
-    scrollbar-width: auto;      
-}
-
 .product-card {
-    min-width: 300px;       
-    height: 340px;          
-    flex-shrink: 0;         
     background-color: var(--color-light);
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .product-card img {
     width: 100%;
-    height: 300px;       
+    height: 200px;
     object-fit: cover;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .product-card h3 {
     font-size: 1.4em;
-    margin: 0 10px 5px 10px;
+    margin-top: 0;
 }
 
 .product-card .price {
@@ -359,48 +296,47 @@ a, button {
     font-size: 1.2em;
     color: var(--color-accent);
     font-weight: bold;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .add-to-cart-btn {
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     color: var(--color-light);
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.95em;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 .add-to-cart-btn:hover {
-    background-color: #d95316;
+    background-color: #005a8f;
     transform: translateY(-2px);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* -------------------- ALTRI STILI -------------------- */
+/* ===================================== */
+/* 🖼️ GALLERIA - SLIDER/CAROUSEL */
+/* ===================================== */
 .gallery-section {
     text-align: center;
-    background-color: #eaf6f4;
+    background-color: #eaf6f4; /* Sfondo leggermente diverso */
 }
 
 .carousel-container {
     position: relative;
     max-width: 800px;
     margin: auto;
-    overflow: hidden;
+    overflow: hidden; /* Nasconde le slide che non sono attive */
     border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 .carousel-slider {
     display: flex;
-    transition: transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out; /* Transizione fluida per lo scorrimento */
 }
 
 .slide {
-    min-width: 100%;
+    min-width: 100%; /* Ogni slide occupa il 100% del contenitore */
     flex-shrink: 0;
 }
 
@@ -410,6 +346,7 @@ a, button {
     display: block;
 }
 
+/* Controlli (Frecce) */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -436,6 +373,7 @@ a, button {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Indicatori (Pallini) */
 .dots-container {
     text-align: center;
     padding: 10px;
@@ -457,19 +395,12 @@ a, button {
     background-color: var(--color-secondary);
 }
 
+
+/* ===================================== */
+/* 👤 CHI SONO E 📞 CONTATTI */
+/* ===================================== */
 .about-section {
     text-align: center;
-}
-
-.large-cta-text {
-    font-size: 3.3em; 
-    color: var(--color-primary);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 30px auto; 
-    padding: 0 10px;
-    max-width: 900px;
 }
 
 .bio-content {
@@ -533,14 +464,19 @@ a, button {
     color: var(--color-secondary);
 }
 
+/* ===================================== */
+/* 📱 RESPONSIVE DESIGN (Smartphone/Tablet) */
+/* ===================================== */
+
+/* Tablet (max 768px) */
 @media (max-width: 768px) {
     .navbar {
         flex-wrap: wrap;
         padding: 15px 20px;
     }
-
+    
     .nav-links {
-        display: none;
+        display: none; /* Nascondiamo i link principali, si potrebbe usare un menu hamburger */
         width: 100%;
         order: 3;
     }
@@ -561,8 +497,8 @@ a, button {
     }
 
     .sidebar.open {
-        width: 100%;
-        max-width: 400px;
+        width: 100%; /* Il carrello occupa tutto lo schermo su mobile */
+        max-width: 400px; /* Limite massimo anche se occupa lo schermo */
     }
 
     .products-grid {
@@ -573,50 +509,31 @@ a, button {
         padding: 10px;
         font-size: 16px;
     }
-
-    .hero h1 {
-        font-size: 3em;
-    }
-
-    .hero .hero-subtitle {
-        font-size: 1.3em;
-    }
-
-    .large-cta-text {
-        font-size: 2.5em; 
-    }
 }
 
+/* Smartphone (max 500px) */
 @media (max-width: 500px) {
     .navbar {
         flex-direction: row;
         justify-content: space-between;
     }
-
+    
     .logo {
         font-size: 1.5em;
     }
 
     .cart-icon {
-        margin-left: auto;
-    }
-
-    .hero h1 {
-        font-size: 2.2em;
-        margin-bottom: 5px;
+        margin-left: auto; /* Spinge il carrello a destra */
     }
     
-    .hero .hero-subtitle {
-        font-size: 1.1em;
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-
-    .large-cta-text {
-        font-size: 1.8em; 
+    .hero h1 {
+        font-size: 2em;
     }
 }
 
+/* ===================================== */
+/* 🦶 FOOTER */
+/* ===================================== */
 footer {
     text-align: center;
     padding: 20px;
