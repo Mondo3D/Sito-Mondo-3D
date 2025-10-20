@@ -31,6 +31,11 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li class="dropdown">
+                    <a href="#" class="dropbtn">Materiali <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">PLA</a>
+                        <a href="#">PETG</a>
+                <li class="dropdown">
                     <a href="#" class="dropbtn">Categorie <i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-content">
                         <a href="#">Gadget</a>
@@ -54,47 +59,59 @@
     </header>
 
     <main id="home">
-        <section class="hero">
-            <h1>Dai forma alle tue idee con la Stampa 3D</h1>
-            <p>Esplora la nostra selezione di modelli unici o richiedi un preventivo personalizzato.</p>
+        <section id="hero" class="hero">
+            <h1>Dai forma alle tue idee con la stampa 3D</h1>
+            <p class="hero-subtitle">Esplora la nostra selezione di modelli unici o richiedi un <span class="no-break">preventivo personalizzato.</span></p>
+            <a href="#products" class="button-primary">Scopri i prodotti</a>
         </section>
 
-        <section id="prodotti" class="products-grid">
-            <h2>I Nostri Prodotti in Evidenza</h2>
-            
-            <div class="product-card" data-id="pk01" data-name="Portachiavi Logo 3D" data-price="7.99">
-                <img src="https://via.placeholder.com/300x200?text=Portachiavi+Personalizzato" alt="Portachiavi Logo 3D">
-                <h3>Portachiavi Logo 3D</h3>
-                <p>Ideale come regalo aziendale o gadget personalizzato.</p>
-                <span class="price">€ 5.99</span>
-                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
-            </div>
+        <section id="prodotti" class="products-carousel">
+    <h2>I Nostri Prodotti in Evidenza</h2>
+    
+    <div class="products-scroll-wrapper"> 
+        
+        <div class="product-card" data-id="pk01" data-name="Portachiavi Logo 3D" data-price="7.99">
+            <img src=mondo3dsitoweb/portachiavi.jpg alt="Portachiavi Logo 3D">
+            <h3>Portachiavi Logo 3D</h3>
+            <p>Ideale come regalo aziendale <br>o gadget personalizzato.</p>
+            <br><span class="price">6,99 €</span>
+            <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+        </div>
 
-            <div class="product-card" data-id="vs02" data-name="Vaso Geometrico Moderno" data-price="24.50">
-                <img src="https://via.placeholder.com/300x200?text=Vaso+Geometrico" alt="Vaso Geometrico">
-                <h3>Vaso Geometrico Moderno</h3>
-                <p>Design minimalista perfetto per la casa o l'ufficio.</p>
-                <span class="price">€ 24.50</span>
-                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
-            </div>
+        <div class="product-card" data-id="vs02" data-name="Vaso Geometrico Moderno" data-price="24.50">
+            <img src="https://via.placeholder.com/300x200?text=Vaso+Geometrico" alt="Vaso Geometrico">
+            <h3>Vaso Geometrico Moderno</h3>
+            <p>Design minimalista perfetto <br>per la casa o l'ufficio.</p>
+            <br><span class="price">24,49 €</span>
+            <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+        </div>
 
-           <div class="product-card" data-id="kf03" data-name="KafelKapsewaves" data-price="14.00">
-                <img src=Kafelkapsewaves.jpg alt="Portacapsule KafelKapsewaves">
-                <h3>Kafelkapsewaves</h3>
-                <p>L'originale porta capsule modulare dal design dinamico. Perfetto per la tua postazione caffè!</p>
-                <span class="price">€ 21.00</span>
-                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
-            </div>
-            
-            <div class="product-card" data-id="lp04" data-name="Lampada Notturna a LED" data-price="39.99">
-                <img src="https://via.placeholder.com/300x200?text=Lampada+3D" alt="Lampada Notturna">
-                <h3>Lampada Notturna a LED</h3>
-                <p>Personalizzabile con il tuo nome o un logo (Categoria Lampade).</p>
-                <span class="price">€ 39.99</span>
-                <button class="add-to-cart-btn">Aggiungi al Carrello</button>
-            </div>
-        </section>
-
+        <div class="product-card" data-id="kf03" data-name="KafelKapsewaves" data-price="14.00">
+            <img src=mondo3dsitoweb/Kafelkapsewavesfotojpg alt="Portacapsule KafelKapsewaves">
+            <h3>Kafelkapsewaves</h3>
+            <p>L'originale porta capsule dal <br>design dinamico. Perfetto per la tua <br>postazione caffè!</p>
+            <span class="price">20,99 €</span>
+            <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+        </div>
+        
+        <div class="product-card" data-id="lp04" data-name="Lampada Notturna a LED" data-price="39.99">
+            <img src="https://via.placeholder.com/300x200?text=Lampada+3D" alt="Lampada Notturna">
+            <h3>Lampada Notturna a LED</h3>
+            <p>Personalizzabile con il tuo nome <br>o un logo (Categoria Lampade).</p>
+            <br><span class="price">39,99 €</span>
+            <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+        </div>
+        
+        <div class="product-card" data-id="xtr1" data-name="Supporto per Cuffie" data-price="12.00">
+            <img src="https://via.placeholder.com/300x200?text=Supporto+Cuffie" alt="Supporto Cuffie">
+            <h3>Supporto per Cuffie</h3>
+            <p>Design ergonomico <br>e personalizzabile.</p>
+            <br><span class="price">11,99 €</span>
+            <button class="add-to-cart-btn">Aggiungi al Carrello</button>
+        </div>
+        
+    </div> </section>
+        
         <section id="galleria" class="gallery-section">
             <h2>Galleria dei Progetti</h2>
             <div class="carousel-container">
@@ -117,18 +134,20 @@
 
         <section id="chi-sono" class="about-section">
             <h2>Chi Siamo</h2>
+
             <div class="bio-content">
                 <img src=Logo.jpg alt="Foto del Logo" class="profile-img">
                 
                 <p>
-                    Benvenuto! Mondo 3D nasce per eliminare la distanza tra la mente e la materia e per offrire soluzioni creative e veloci che la produzione tradizionale non può dare. Se hai uno schizzo, un file CAD, o semplicemente un'esigenza specifica (un ricambio introvabile, un logo tridimensionale), noi lo rendiamo reale. L'approccio è semplice: ascoltiamo l'idea, selezioniamo il miglior filamento (dal PLA tecnico al PETG rinforzato - ), e lo stampiamo con una qualità che dovrai toccare per credere. Siamo il giusto partner per la prototipazione e la personalizzazione. Smetti di immaginare, inizia a creare. Contattaci oggi.
-                </p>
+                    Benvenuto! Mondo 3D nasce per eliminare la distanza tra la mente e la materia e per offrire soluzioni creative e veloci che la produzione tradizionale non può dare. Se hai uno schizzo, un file CAD, o semplicemente un'esigenza specifica (un ricambio introvabile, un logo tridimensionale, etc...), noi ci impegniamo per reale. <br>L'approccio è semplice: ascoltiamo l'idea, selezioniamo il miglior filamento <br>(dal PLA tecnico al PETG rinforzato - siamo in continua formazione e cerchiamo di tenerci in costante aggiornamento anche con i materiali ed è per questo che il nostro desiderio è quello di evolverci), e lo stampiamo con una qualità che dovrai toccare per credere. Siamo il giusto partner per la prototipazione e la personalizzazione.</p>
             </div>
+        </section>
+         <p class="large-cta-text">Smetti di immaginare, inizia a creare. Contattaci oggi.</p>
         </section>
 
         <section id="contatti" class="contact-section">
             <h2>Contattaci</h2>
-            <p>Se hai domande o richieste di preventivo, usa il modulo qui sotto e *trovaci sui social!*</p>
+            <p>Se hai domande o richieste per un preventivo personalizzato usa il modulo qui sotto o trovaci sui social!</p>
 
             <form action="#" method="POST" class="contact-form">
                 <input type="text" name="nome" placeholder="Il tuo Nome" required>
